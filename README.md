@@ -1,17 +1,19 @@
 # PRODIGY_DS_01 - Data Visualization
 
 ## Objective
-To visualize the distribution of categorical and continuous variables.
+To visualize population distribution using real-world dataset.
+
+## Dataset
+World Population Dataset (Prodigy InfoTech)
 
 ## Tools Used
 - Python
 - Pandas
 - Matplotlib
-- Seaborn
 
-## Output
-- Histogram showing Age Distribution
-- Bar Chart showing Gender Distribution
+## Visualizations
+- Histogram of Population Distribution
+- Bar Chart of Top 10 Countries by Population
 
 ## Conclusion
-The project demonstrates how to analyze and visualize data distributions effectively using Python.
+The analysis shows how population is distributed globally and highlights the most populated countries.

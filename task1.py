@@ -1,36 +1,33 @@
-# PRODIGY_DS_01 - Task 1 (No seaborn)
-
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# Dataset
-data = pd.DataFrame({
-    'Age': [18,22,25,30,35,40,22,25,30,28,32,36,45,50,23,27],
-    'Gender': ['Male','Female','Male','Female','Male','Female',
-               'Male','Female','Male','Male','Female','Female',
-               'Male','Female','Male','Female']
-})
+# Load dataset (skip first 4 rows)
+df = pd.read_csv("world_population.csv", skiprows=4)
+
+# Check columns
+print(df.head())
 
 # ---------------------------
-# Histogram (Age)
+# Histogram (latest year data)
 # ---------------------------
 plt.figure()
-plt.hist(data['Age'], bins=6)
-plt.title("Age Distribution")
-plt.xlabel("Age")
+plt.hist(df['2022'], bins=10)
+plt.title("Population Distribution (2022)")
+plt.xlabel("Population")
 plt.ylabel("Frequency")
-plt.savefig("age_histogram.png")
+plt.savefig("population_histogram.png")
 plt.show()
 
 # ---------------------------
-# Bar Chart (Gender)
+# Bar Chart (Top 10 Countries)
 # ---------------------------
+top10 = df.sort_values(by='2022', ascending=False).head(10)
+
 plt.figure()
-data['Gender'].value_counts().plot(kind='bar')
-plt.title("Gender Distribution")
-plt.xlabel("Gender")
-plt.ylabel("Count")
-plt.savefig("gender_bar_chart.png")
+plt.bar(top10['Country Name'], top10['2022'])
+plt.title("Top 10 Countries by Population (2022)")
+plt.xticks(rotation=45)
+plt.savefig("top10_population.png")
 plt.show()
 
-print("✅ Task 1 Completed Successfully")
+print("✅ Task 1 with real dataset completed!")
